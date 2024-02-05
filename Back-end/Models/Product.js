@@ -17,7 +17,11 @@ const ProductSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
-  }
+  },
+  orders: [{ //one product is in many orders
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'order',
+  }],
 }, {timestamps: true,});
 
 export default mongoose.model('Product', ProductSchema);

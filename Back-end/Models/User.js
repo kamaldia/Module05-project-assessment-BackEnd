@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema({
     enum: ['admin', 'registered', 'unregistered'],
     default: 'unregistered',
   },
+  orders: [{ //one user has many orders
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'order',
+  }],
 });
 
 export default mongoose.model('User', UserSchema);
